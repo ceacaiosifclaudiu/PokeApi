@@ -41,3 +41,13 @@
   gap: 20px;
   height: auto;
 }
+
+.paginationContainer {
+  display: flex;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.paginationContainer .button:hover {
+  transform: translateY(-2px);
+}

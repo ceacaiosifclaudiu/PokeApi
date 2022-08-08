@@ -4,11 +4,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-width: 500px;
+  min-width: 650px;
   max-width: 700px;
   min-height: 400px;
   height: auto;
   border-radius: 25px;
+  margin-top: 3rem;
 }
 
 .pokemonCardHeader {
@@ -29,7 +30,8 @@
 .pokemonTypeCard {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .pokemonType {
@@ -41,6 +43,14 @@
   line-height: 1.6;
   font-weight: 15px;
   letter-spacing: 1.5px;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  margin-top: 1rem;
 }
 
 .stats {
@@ -108,4 +118,16 @@ img {
   align-items: center;
   justify-content: center;
   margin: 0.3rem 0;
+}
+
+.pokemonDetailsButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(111, 202, 202);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  position: absolute;
+  top: 50px;
+  left: 50px;
 }

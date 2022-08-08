@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Ability from "../../components/details/Ability";
+import Description from "../../components/details/Description";
 import HeightWeightBaseExperience from "../../components/details/HeightWeightBaseExperience";
 import Moves from "../../components/details/Moves";
 import Photo from "../../components/details/Photo";
@@ -11,14 +12,26 @@ import "./Pokemon.css";
 
 function PokemonDetails() {
   const pokemonName = useParams();
+  const nav = useNavigate();
 
   const [singlePokemon, setSinglePokemon] = useState();
+  const [description, setDescription] = useState();
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.name}`)
       .then((res) => res.json())
       .then((data) => {
         setSinglePokemon(data);
+      })
+      .catch((err) => console.log(err));
+  }, [pokemonName.name]);
+
+  useEffect(() => {
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName.name}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDescription(data.flavor_text_entries[0].flavor_text);
+        console.log(data.flavor_text_entries[0].flavor_text);
       })
       .catch((err) => console.log(err));
   }, [pokemonName.name]);
@@ -35,6 +48,9 @@ function PokemonDetails() {
   const ability = "powers.ability.name";
   return (
     <div className="container">
+      <button className="pokemonDetailsButton" onClick={() => nav("/")}>
+        <h3>Back</h3>
+      </button>
       <div className="pokemonCard">
         <div className="pokemonCardHeader">
           <Photo front_default={front_default} />
@@ -43,6 +59,7 @@ function PokemonDetails() {
         </div>
 
         <div className="pokemonCardBody">
+          <Description description={description} />
           <HeightWeightBaseExperience
             height={height}
             weight={weight}

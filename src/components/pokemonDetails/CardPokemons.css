@@ -10,6 +10,10 @@
   gap: 1.5rem;
   width: 200px;
   height: auto;
+  cursor: pointer;
+}
+.pokemonDetails:hover {
+  transform: translateY(-2px);
 }
 
 .imgDiv {
