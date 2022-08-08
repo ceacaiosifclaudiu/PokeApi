@@ -1,0 +1,32 @@
+/* ----Single Card----- */
+.pokemonDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(111, 202, 202);
+  padding: 1rem;
+  border-radius: 25px;
+  gap: 1.5rem;
+  width: 200px;
+  height: auto;
+}
+
+.imgDiv {
+  width: 100px;
+  height: 100px;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  object-fit: cover;
+  width: auto;
+  height: auto;
+}
+
+h1 {
+  text-transform: capitalize;
+}
