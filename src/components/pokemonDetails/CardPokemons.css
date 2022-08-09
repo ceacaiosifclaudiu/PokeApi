@@ -9,8 +9,9 @@
   border-radius: 25px;
   gap: 1.5rem;
   width: 200px;
-  height: auto;
+  height: 250px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 .pokemonDetails:hover {
   transform: translateY(-2px);
@@ -33,4 +34,22 @@ img {
 
 h1 {
   text-transform: capitalize;
+}
+
+@media only screen and (max-width: 1075px) {
+  .pokemonDetails {
+    flex-basis: auto;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .pokemonDetails {
+    flex-basis: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .pokemonDetails {
+    flex-basis: auto;
+  }
 }

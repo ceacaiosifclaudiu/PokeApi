@@ -1,3 +1,11 @@
+.pokemonCard {
+  background-image: linear-gradient(
+    to right,
+    rgb(111, 202, 202),
+    rgba(111, 202, 202, 0.4)
+  );
+}
+
 /* ---Header--- */
 
 .header {
@@ -10,8 +18,11 @@
   margin-bottom: 2rem;
 }
 
+.tilte {
+  width: 90vw;
+}
+
 .searchBarContainer {
-  width: 30%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,11 +32,14 @@
   width: 11rem;
   height: 2rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   outline: none;
-  padding: 1rem;
-  background-color: rgb(220, 215, 215);
+  padding: 1.5rem;
+  background-color: rgba(111, 202, 202, 0.784);
   color: #333;
+  font-size: larger;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .searchBar:hover {

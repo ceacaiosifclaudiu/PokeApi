@@ -8,21 +8,29 @@ const Card = () => {
   const [pokemons, setPokemons] = useState([]);
   const [input, setInput] = useState("");
   const nav = useNavigate();
-  const [pokemonsOnPage, setPokemonsOnPage] = useState(20);
+  const [pokemonsOnPage, setPokemonsOnPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   const onClickLeft = (e) => {
     if (pokemonsOnPage == 0) {
-      console.log("You cant go lower then this!");
+      console.log("You cant go above then this!");
     } else {
       setPokemonsOnPage(pokemonsOnPage - 20);
+      if (page >= 0) {
+        setPage(page - 1);
+      }
     }
-
-    console.log(pokemonsOnPage);
   };
 
   const onClickRight = (e) => {
-    setPokemonsOnPage(pokemonsOnPage + 20);
-    console.log(pokemonsOnPage);
+    if (pokemonsOnPage > 400) {
+      console.log("You cant go higer then this!");
+    } else {
+      setPokemonsOnPage(pokemonsOnPage + 20);
+      if (page < 30) {
+        setPage(page + 1);
+      }
+    }
   };
 
   useEffect(() => {
@@ -48,7 +56,9 @@ const Card = () => {
   return (
     <div className="container">
       <div className="header">
-        <h1>Let's find the pokemon you deserve!</h1>
+        <div className="title">
+          <h1>Who's your Pokémon partner?</h1>
+        </div>
 
         <div className="searchBarContainer">
           <div className="searchBarInput">
@@ -73,12 +83,16 @@ const Card = () => {
             );
           })}
       </div>
-      <Pagination
-        pokemonsOnPage={pokemonsOnPage}
-        setPokemonsOnPage={setPokemonsOnPage}
-        onClickLeft={onClickLeft}
-        onClickRight={onClickRight}
-      />
+      {!input ? (
+        <Pagination
+          pokemonsOnPage={pokemonsOnPage}
+          setPokemonsOnPage={setPokemonsOnPage}
+          onClickLeft={onClickLeft}
+          onClickRight={onClickRight}
+          page={page}
+          setPage={setPage}
+        />
+      ) : null}
     </div>
   );
 };

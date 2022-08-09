@@ -1,10 +1,10 @@
-function Pagination({ onClickRight, onClickLeft }) {
+function Pagination({ page, onClickRight, onClickLeft }) {
   return (
     <div className="paginationContainer">
       <button className="button" onClick={onClickLeft}>
         ◀️
       </button>
-      <h2>1 from 2</h2>
+      <h2>{page} from 22</h2>
       <button className="button" onClick={onClickRight}>
         ▶️
       </button>

@@ -7,8 +7,10 @@
   display: flex;
   flex-direction: column;
   margin: 5rem 0;
-  justify-content: center;
+
   align-items: center;
+  position: relative;
+  min-height: 80vh;
 }
 
 button {
@@ -22,4 +24,20 @@ button {
 
 button:hover {
   box-shadow: 5px 4px 30px 5px rgba(0, 0, 0, 0.05);
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 90vw;
+    margin: 3rem 1rem;
+    padding: 0 4rem;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .container {
+    width: 90vw;
+    margin: 3rem 1rem;
+    padding: 0 3rem;
+  }
 }
