@@ -51,7 +51,7 @@ function PokemonDetails() {
       <button className="pokemonDetailsButton" onClick={() => nav("/")}>
         <h3>Back</h3>
       </button>
-      <div className="pokemonCard">
+      <div className="pokemonCard pokeDetails">
         <div className="pokemonCardHeader">
           <Photo front_default={front_default} />
           <PokemonName singlePokemon={singlePokemon} />

@@ -4,6 +4,7 @@
     rgb(111, 202, 202),
     rgba(111, 202, 202, 0.4)
   );
+  width: 70%;
 }
 
 /* ---Header--- */
@@ -64,4 +65,10 @@
 
 .paginationContainer .button:hover {
   transform: translateY(-2px);
+}
+
+@media only screen and (max-width: 1200px) {
+  .paginationContainer {
+    margin-bottom: 2rem;
+  }
 }
