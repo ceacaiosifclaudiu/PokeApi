@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import Ability from "../../components/details/Ability";
-import Description from "../../components/details/Description";
-import HeightWeightBaseExperience from "../../components/details/HeightWeightBaseExperience";
-import Moves from "../../components/details/Moves";
+import { useParams, useNavigate, NavLink, Outlet } from "react-router-dom";
+import Ability from "../../components/details/ability/Ability";
+import Description from "../../components/details/description/Description";
+import HeightWeightBaseExperience from "../../components/details/heightweightbaseexperience/HeightWeightBaseExperience";
+import Moves from "../../components/details/moves/Moves";
 import Photo from "../../components/details/Photo";
 import PokemonName from "../../components/details/PokemonName";
-import Stats from "../../components/details/Stats";
-import Type from "../../components/details/Type";
+import Stats from "../../components/details/stats/Stats";
+import Type from "../../components/details/type/Type";
 import "./Pokemon.css";
 
 function PokemonDetails() {
@@ -31,7 +31,6 @@ function PokemonDetails() {
       .then((res) => res.json())
       .then((data) => {
         setDescription(data.flavor_text_entries[0].flavor_text);
-        console.log(data.flavor_text_entries[0].flavor_text);
       })
       .catch((err) => console.log(err));
   }, [pokemonName.name]);
@@ -53,7 +52,7 @@ function PokemonDetails() {
       </button>
       <div className="pokemonCard pokeDetails">
         <div className="pokemonCardHeader">
-          <Photo front_default={front_default} />
+          <Photo src={front_default} />
           <PokemonName singlePokemon={singlePokemon} />
           <Type singlePokemon={singlePokemon} />
         </div>
@@ -66,9 +65,40 @@ function PokemonDetails() {
             base_experience={base_experience}
           />
 
-          <Ability abilities={abilities} />
-          <Stats stats={stats} />
-          <Moves moves={moves} />
+          <nav className="links">
+            <NavLink
+              to="sprites"
+              className={({ isActive }) => (isActive ? "linkActiv" : "link")}>
+              <h2>Sprites</h2>
+            </NavLink>
+            <NavLink
+              to="stats"
+              className={({ isActive }) => (isActive ? "linkActiv" : "link")}>
+              <h2>Stats</h2>
+            </NavLink>
+            <NavLink
+              to="moves"
+              className={({ isActive }) => (isActive ? "linkActiv" : "link")}>
+              <h2>Moves</h2>
+            </NavLink>
+            <NavLink
+              to="abilities"
+              className={({ isActive }) => (isActive ? "linkActiv" : "link")}>
+              <h2>Abilities</h2>
+            </NavLink>
+          </nav>
+
+          <Outlet
+            context={{
+              stats,
+              moves,
+              abilities,
+              front_default,
+              front_shiny,
+              back_default,
+              back_shiny,
+            }}
+          />
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@
   flex-direction: column;
   min-width: 650px;
   max-width: 700px;
-  min-height: 400px;
+  min-height: 700px;
   height: auto;
   border-radius: 25px;
   margin-top: 3rem;
@@ -132,6 +132,28 @@ img {
   left: 50px;
 }
 
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.link {
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+
+  text-decoration: none;
+}
+
+.linkActiv {
+  background-color: rgb(148, 50, 234);
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 1200px) {
   .pokemonCard {
     width: 80vw;
@@ -174,9 +196,6 @@ img {
     flex-basis: 100%;
   }
 
-  h3 {
-    width: 100%;
-  }
   .pokemonTypeCard {
     flex-direction: column;
   }

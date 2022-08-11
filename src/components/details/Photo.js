@@ -1,7 +1,7 @@
-function Photo({ front_default }) {
+function Photo({ src }) {
   return (
     <div className="imgDiv">
-      <img src={front_default} alt="" />
+      <img src={src} alt="" />
     </div>
   );
 }

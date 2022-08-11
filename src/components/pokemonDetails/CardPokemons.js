@@ -10,7 +10,7 @@ function PokemonDetails({ name, id, onClick, url }) {
 
   return (
     <div className="pokemonDetails" id={id} key={id} onClick={onClick}>
-      <Photo front_default={imageUrl} />
+      <Photo src={imageUrl} />
 
       <h1>{name}</h1>
     </div>
